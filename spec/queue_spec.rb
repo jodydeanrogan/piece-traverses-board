@@ -23,10 +23,4 @@ describe "Queue" do
     expect(@item).to eq("first_object")
   end
 
-  it "returns true if the queue is empty" do
-    expect(@queue.is_empty?).to eq(true)
-    @queue.enqueue("object")
-    expect(@queue.is_empty?).to eq(false)
-  end
-
 end

@@ -14,8 +14,4 @@ class Queue
     self.items.shift
   end
 
-  def is_empty?
-    self.items.empty?
-  end
-
 end

@@ -16,7 +16,7 @@ class Piece
       ymove = node.data[1] + move[1]
       [xmove, ymove] if board.valid?(x: xmove, y: ymove)
     end
-    return moves.compact
+    moves.compact
   end
 
   def traverses(board: nil, start: nil, finish: nil)
