@@ -1,6 +1,8 @@
 require 'rspec'
 require 'pry'
+require 'stringio'
 require './lib/piece.rb'
 require './lib/board.rb'
 require './lib/queue.rb'
 require './lib/node.rb'
+require './lib/interface.rb'
