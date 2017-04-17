@@ -39,9 +39,14 @@ class Piece
 
   def self.queen
     moves = []
-    (-8..8).each do |x|
-      (-8..8).each do |y|
-        moves << [x, y]
+    (-8..8).each do |num|
+      moves << [num, num]
+      moves << [num, 0]
+      moves << [0, num]
+      unless num == 0
+        new_num = num.abs if num < 0
+        new_num = -(num) if num > 0
+        moves << [num, new_num]
       end
     end
     moves

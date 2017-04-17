@@ -30,8 +30,10 @@ describe "Piece" do
     it "traverses from start to finish then returns the path" do
       path1 = @knight.traverses(board: @board, start: [0, 0], finish: [1, 2])
       path2 = @knight.traverses(board: @board, start: [4, 7], finish: [0, 4])
+      path3 = @knight.traverses(board: @board, start: [3, 3], finish: [6, 3])
       expect(path1).to eq([[0, 0], [1, 2]])
       expect(path2).to eq([[4, 7], [3, 5], [2, 3], [0, 4]])
+      expect(path3).to eq([[3, 3], [5, 4], [7, 5], [6, 3]])
     end
 
   end
@@ -43,9 +45,23 @@ describe "Piece" do
     end
 
     it "defines the moves a queen can make" do
-      expect(@queen.moves.count).to  eq(289)
+      expect(@queen.moves.count).to  eq(67)
       expect(@queen.moves.first).to  eq([-8, -8])
-      expect(@queen.moves.last).to  eq([8, 8])
+      expect(@queen.moves.last).to  eq([8, -8])
+    end
+
+    it "returns the moves that are valid for a board and node" do
+      expect(@queen.valid_moves?(board: @board, node: @node1).count).to eq(24)
+      expect(@queen.valid_moves?(board: @board, node: @node2).count).to eq(26)
+    end
+
+    it "traverses from start to finish then returns the path" do
+      path1 = @queen.traverses(board: @board, start: [0, 0], finish: [0, 7])
+      path2 = @queen.traverses(board: @board, start: [0, 0], finish: [1, 7])
+      path3 = @queen.traverses(board: @board, start: [3, 3], finish: [2, 5])
+      expect(path1).to eq([[0, 0], [0, 7]])
+      expect(path2).to eq([[0, 0], [1, 1], [1, 7]])
+      expect(path3).to eq([[3, 3], [0, 3], [2, 5]])
     end
 
   end
