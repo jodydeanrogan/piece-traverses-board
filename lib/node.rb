@@ -1,6 +1,7 @@
 class Node
 
-  attr_accessor :data, :parent, :children
+  attr_reader :data, :parent
+  attr_accessor :children
 
   def initialize(data: nil, parent: nil)
     @data = data
