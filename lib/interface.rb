@@ -26,4 +26,11 @@ class Interface
     answer = self.input_interface.gets.chomp
   end
 
+  def print_path(piece: nil, start: nil, finish: nil)
+    @board = Board.new(xrange: 0..7, yrange: 0..7)
+    @piece = Piece.new(type: piece.to_sym)
+    @path = @piece.traverses(board: @board, start: eval(start), finish: eval(finish))
+    self.output_interface.puts @path.to_s
+  end
+
 end

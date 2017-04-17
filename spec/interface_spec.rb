@@ -4,7 +4,10 @@ describe "Interface" do
 
   WHICH_PIECE_ANSWER = "knight\n"
   START_ANSWER = "[4, 7]\n"
+  START_STRING = "[4, 7]"
   FINISH_ANSWER = "[0, 4]\n"
+  FINISH_STRING = "[0, 4]"
+  PATH_STRING = "[[4, 7], [3, 5], [2, 3], [0, 4]]"
 
   let(:output_interface) {StringIO.new}
   let(:input_interface) {StringIO.new}
@@ -40,6 +43,15 @@ describe "Interface" do
     end
     it "should ask the user where the piece should finish" do
       expect(output_interface.string).to include(Interface::FINISH)
+    end
+  end
+
+  describe "path" do
+    before do
+      subject.print_path(piece: "knight", start: START_STRING, finish: FINISH_STRING)
+    end
+    it "should ask the user where the piece should finish" do
+      expect(output_interface.string).to include(PATH_STRING)
     end
   end
 
