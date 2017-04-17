@@ -12,8 +12,8 @@ describe "Piece" do
 
   it "defines the moves a piece can make" do
     expect(@knight.moves.count).to  eq(8)
-    expect(@knight.moves.first).to  eq([2, 1])
-    expect(@knight.moves.last).to  eq([2, -1])
+    expect(@knight.moves.first).to  eq([1, 2])
+    expect(@knight.moves.last).to  eq([-1, 2])
   end
 
 end
