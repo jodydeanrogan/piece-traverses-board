@@ -37,4 +37,14 @@ class Piece
     [[1, 2], [2, 1], [2, -1], [1, -2], [-1, -2], [-2, -1], [-2, 1], [-1, 2]]
   end
 
+  def self.queen
+    moves = []
+    (-8..8).each do |x|
+      (-8..8).each do |y|
+        moves << [x, y]
+      end
+    end
+    moves
+  end
+
 end
