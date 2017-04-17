@@ -1,3 +1,4 @@
+require 'json'
 require './lib/piece.rb'
 require './lib/board.rb'
 require './lib/queue.rb'

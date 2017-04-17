@@ -29,7 +29,7 @@ class Interface
   def print_path(piece: nil, start: nil, finish: nil)
     @board = Board.new(xrange: 0..7, yrange: 0..7)
     @piece = Piece.new(type: piece.to_sym)
-    @path = @piece.traverses(board: @board, start: eval(start), finish: eval(finish))
+    @path = @piece.traverses(board: @board, start: JSON.parse(start), finish: JSON.parse(finish))
     self.output_interface.puts @path.to_s
   end
 
