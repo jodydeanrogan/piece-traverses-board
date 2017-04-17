@@ -8,4 +8,14 @@ class Node
     @children = []
   end
 
+  def return_path
+    path = []
+    node = self
+    until node == nil
+      path << node.data
+      node = node.parent
+    end
+    path.reverse
+  end
+
 end

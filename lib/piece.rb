@@ -19,6 +19,20 @@ class Piece
     return moves.compact
   end
 
+  def traverses(board: nil, start: nil, finish: nil)
+    queue = Queue.new
+    node = Node.new(data: start)
+    queue.enqueue(node)
+    until node.data == finish
+      node = queue.dequeue
+      node.children = self.valid_moves?(board: board, node: node)
+      node.children.each do |child|
+        queue.enqueue(Node.new(data: child, parent: node))
+      end
+    end
+    node.return_path
+  end
+
   def self.knight
     [[1, 2], [2, 1], [2, -1], [1, -2], [-1, -2], [-2, -1], [-2, 1], [-1, 2]]
   end

@@ -24,4 +24,11 @@ describe "Piece" do
     expect(@knight.valid_moves?(board: @board, node: @node2)).to eq([[7, 4], [5, 4], [4, 5], [4, 7]])
   end
 
+  it "traverses from start to finish then returns the path" do
+    path1 = @knight.traverses(board: @board, start: [0, 0], finish: [1, 2])
+    path2 = @knight.traverses(board: @board, start: [4, 7], finish: [0, 4])
+    expect(path1).to eq([[0, 0], [1, 2]])
+    expect(path2).to eq([[4, 7], [3, 5], [2, 3], [0, 4]])
+  end
+
 end
