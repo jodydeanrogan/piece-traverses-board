@@ -23,8 +23,8 @@ describe "Piece" do
     end
 
     it "returns the moves that are valid for a board and node" do
-      expect(@knight.valid_moves?(board: @board, node: @node1)).to eq([[1, 2], [2, 1]])
-      expect(@knight.valid_moves?(board: @board, node: @node2)).to eq([[7, 4], [5, 4], [4, 5], [4, 7]])
+      expect(@knight.valid_moves(board: @board, node: @node1)).to eq([[1, 2], [2, 1]])
+      expect(@knight.valid_moves(board: @board, node: @node2)).to eq([[7, 4], [5, 4], [4, 5], [4, 7]])
     end
 
     it "traverses from start to finish then returns the path" do
@@ -51,8 +51,8 @@ describe "Piece" do
     end
 
     it "returns the moves that are valid for a board and node" do
-      expect(@queen.valid_moves?(board: @board, node: @node1).count).to eq(24)
-      expect(@queen.valid_moves?(board: @board, node: @node2).count).to eq(26)
+      expect(@queen.valid_moves(board: @board, node: @node1).count).to eq(24)
+      expect(@queen.valid_moves(board: @board, node: @node2).count).to eq(26)
     end
 
     it "traverses from start to finish then returns the path" do
